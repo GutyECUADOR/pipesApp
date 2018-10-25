@@ -1,20 +1,110 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<div class="container main_container">
 
+  <table class="table table-striped">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Variable</th>
+        <th scope="col">Pipe</th>
+        <th scope="col">Resultado</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="col">{{ nombre }} </th>
+        <th scope="col"> uppercase</th>
+        <th scope="col">{{ nombre | uppercase }}</th>
+      </tr>
+      <tr>
+        <th scope="col">{{ nombre }} </th>
+        <th scope="col"> lowercase</th>
+        <th scope="col">{{ nombre | lowercase }}</th>
+      </tr>
+      <tr>
+        <th scope="col">{{ nombre }} </th>
+        <th scope="col"> slice</th>
+        <th scope="col">{{ nombre | slice:5 }}</th>
+      </tr>
+      <tr>
+        <th scope="col">{{ nombre }} </th>
+        <th scope="col"> slice con inicio y fin</th>
+        <th scope="col">{{ nombre | slice:5:8 }}</th>
+      </tr>
+      <tr>
+        <th scope="col">{{ myarray }} </th>
+        <th scope="col"> slice en array</th>
+        <th scope="col">{{ myarray | slice:3:5 }}</th>
+      </tr>
+      <tr>
+        <th scope="col">{{ PI }} </th>
+        <th scope="col"> number </th>
+        <th scope="col">{{ PI | number:'1.0-2' }}</th>
+      </tr>
+      <tr>
+        <th scope="col">{{ PI }} </th>
+        <th scope="col"> porcent:'enteros.min decimales- max decimales' </th>
+        <th scope="col">{{ PI | percent:'1.2-3'}}</th>
+      </tr>
+      <tr>
+        <th scope="col">{{ salario }} </th>
+        <th scope="col"> currency </th>
+        <th scope="col">{{ salario | currency:'USD':true }}</th>
+      </tr>
+      <tr>
+        <th scope="col">{{ heroe }} </th>
+        <th scope="col"> JSON </th>
+        <th scope="col"><pre>{{ heroe | json }}</pre></th>
+      </tr>
+      <tr>
+        <th scope="col">{{ promesa }} </th>
+        <th scope="col"> async </th>
+        <th scope="col">
+          <pre>{{ promesa | async }}</pre>
+        </th>
+      </tr>
+      <tr>
+        <th scope="col">{{ fechaActual }} </th>
+        <th scope="col"> date </th>
+        <th scope="col">{{ fechaActual | date }}</th>
+      </tr>
+      <tr>
+        <th scope="col">{{ fechaActual }} </th>
+        <th scope="col"> date:'medium' </th>
+        <th scope="col">{{ fechaActual | date: 'medium' }}</th>
+      </tr>
+      <tr>
+        <th scope="col">{{ fechaActual }} </th>
+        <th scope="col"> date:'dd/MM/yyyy </th>
+        <th scope="col">{{ fechaActual | date: 'dd/MM/yyyy' }}</th>
+      </tr>
+      <tr>
+        <th scope="col">{{ fechaActual }} </th>
+        <th scope="col"> date - personalizada </th>
+        <th scope="col">{{ fechaActual | date: 'MMMM - yyyy' }}</th>
+      </tr>
+      <tr>
+        <th scope="col">{{ nombreLOWER }} </th>
+        <th scope="col"> pipe personalizada 'capitalize' </th>
+        <th scope="col">{{ nombreLOWER | capitalizedPipe:false }}</th>
+      </tr>
+
+      <tr>
+        <th scope="col">DOM Seguro </th>
+        <th scope="col">
+        <iframe width="560" height="315" [src]="YouTubeID | DOMSeguro:'https://www.youtube.com/embed/'" frameborder="0" allow="autoplay; encrypted-media"
+          allowfullscreen></iframe>
+        </th>
+      </tr>
+      <tr>
+        <th scope="col">{{ password }} </th>
+        <th scope="col"> password - personalizada 'passwordPipe' </th>
+        <th scope="col">
+          <button 
+            (click)="showPass()"
+            type="button" class="btn btn-primary">Mostrar/Ocultar</button>
+          {{ password | passwordPipe:isPassShow }}
+        </th>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
